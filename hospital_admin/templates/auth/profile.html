@@ -1,0 +1,20 @@
+{% extends 'home/layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<h2>Profile Page</h2>
+<div>
+    <p>Your account details are below:</p>
+    <table>
+
+        {%- for key, value in userData.items() %}
+        <tr>
+            <td>{{key}}:</td>
+            <td>{{value}}</td>
+        </tr>
+        {%- endfor %}
+
+    </table>
+</div>
+{% endblock %}

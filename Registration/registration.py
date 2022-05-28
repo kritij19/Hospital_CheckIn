@@ -50,8 +50,8 @@ def upload():
     if form.get("__ajax", None) == "true":
         is_ajax = True
 
-    target = "Registration/static/uploads/{}".format(_userid) # seperate directory for each upload
-    print(f"target: {target}")
+    my_cwd = os.path.dirname(__file__)
+    target = os.path.join(my_cwd, 'static', 'uploads', f"{_userid}" )
 
     # Make directory at target path if it doesnt already exist
     try:

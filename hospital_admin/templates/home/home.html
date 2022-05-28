@@ -1,0 +1,55 @@
+{% extends 'home/layout.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<h2>Home Page</h2>
+<p>Welcome back, {{ username }}!</p>
+<div class="container">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>{{ title }}
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Contact Number</th>
+                <th>Aadhar Number</th>
+                <th>Gender</th>
+                <th>DOB</th>
+                <th>Street Address</th>
+                <th>Apartment Number</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Pincode</th>
+                <th>PersonID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%- for row in userList %}
+            <tr>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                <td>{{row[7]}}</td>
+                <td>{{row[8]}}</td>
+                <td>{{row[9]}}</td>
+                <td>{{row[10]}}</td>
+                <td>{{row[11]}}</td>
+                <td>{{row[12]}}</td>
+                <td>
+                    <form method="post" action="/view"><input name="id" value="{{row[0]}}" type="hidden">
+                        <input type="submit"  value="View">
+                    </form>
+                </td>
+            </tr>
+            {%- endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

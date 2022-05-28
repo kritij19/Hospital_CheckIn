@@ -44,10 +44,8 @@ def handle_data():
       return render_template('./result.html', output = "Please click a picture before submitting!")
 
     # Get path to image
-    os.chdir('../')
-    print(os.getcwd())
-    filename = r'\upload\image.png'
-    file_path = os.getcwd() + filename
+    my_cwd = os.path.dirname(__file__)
+    file_path = os.path.join(my_cwd, 'upload', 'image.png' )
     print(file_path)
 
     with open(file_path, 'wb') as f:
@@ -57,7 +55,7 @@ def handle_data():
 
     # If face recognized, get details from db
     if(res != ''):
-      print(res)
+      # print(res)
       queryString = f"select* from user where PersonID = '{str(res)}'"
 
       # Connect to database and running query

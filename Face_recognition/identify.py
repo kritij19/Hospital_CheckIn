@@ -56,5 +56,4 @@ def identify(image_path):
         if len(person.candidates) > 0: # if detected face has atleast 1 possible candidate
             print('Person for face ID {} is identified in {} with a confidence of {}.'.format(person.face_id, os.path.basename(image.name), person.candidates[0].confidence)) # Get topmost confidence score              
             person_id  = person.candidates[0].person_id # get person ID for detected face
-            print(person_id)
             return person_id
