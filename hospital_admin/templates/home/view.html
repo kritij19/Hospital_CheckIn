@@ -3,15 +3,13 @@
 {% block title %} User Details {% endblock %}
 
 {% block content %}
-<h2>User Details</h2>
-<div>
-    <p>{{message}}</p>
-    <p>Hi!!! <strong>{{userData.First_Name}} </strong>Your account details are below:</p>
-    <table>
+<h2 style="padding-left: 20px; font-weight: bold;">Patient Details</h2>
 
+<div>
+    <table>
         {%- for key, value in userData.items() %}
         <tr>
-            <td>{{key}}:</td>
+            <td><strong>{{key}}:</strong></td>
             <td>{{value}}</td>
         </tr>
         {%- endfor %}

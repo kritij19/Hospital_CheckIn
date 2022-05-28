@@ -3,14 +3,13 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-<h2>Profile Page</h2>
+<h2 style="padding-left: 20px; font-weight: bold;">Profile Page</h2>
 <div>
-    <p>Your account details are below:</p>
     <table>
 
         {%- for key, value in userData.items() %}
         <tr>
-            <td>{{key}}:</td>
+            <td><strong>{{key}}:</strong></td>
             <td>{{value}}</td>
         </tr>
         {%- endfor %}

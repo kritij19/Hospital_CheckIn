@@ -3,13 +3,13 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-<h2>Home Page</h2>
-<p>Welcome back, {{ username }}!</p>
+<h2 style="padding-left: 20px; font-weight: bold;">Home Page</h2>
+<p style="font-size: large; font-style: oblique; font-weight: bold; color: rgb(92, 103, 101);">Welcome back, {{ username }}!</p>
 <div class="container">
 
     <table class="table table-bordered">
         <thead>
-            <tr>{{ title }}
+            <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Contact Number</th>
@@ -42,10 +42,10 @@
                 <td>{{row[12]}}</td>
                 <td>
                     <form method="post" action="/view"><input name="id" value="{{row[0]}}" type="hidden">
-                        <input type="submit"  value="View">
+                        <input type="submit"  value="View" style="color: white; background-color: #60b5b1; border-radius: 0.25px; border: 0px;">
                     </form>
                 </td>
-            </tr>
+            </tr> 
             {%- endfor %}
 
         </tbody>

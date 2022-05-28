@@ -3,7 +3,15 @@ import time
 from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials
 from azure.cognitiveservices.vision.face.models import TrainingStatusType, Person, QualityForRecognition
-from global_variables import PERSON_GROUP_ID, KEY, ENDPOINT
+import os
+from dotenv import load_dotenv
+
+
+# Get credentials from environment variables
+load_dotenv()
+ENDPOINT = os.getenv('ENDPOINT')
+KEY = os.getenv('KEY')
+PERSON_GROUP_ID = os.getenv('PERSON_GROUP_ID')
 
 # Create an authenticated face client
 face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
@@ -21,17 +29,17 @@ def create_pgp(userId, path_to_image):
 
     # Create new person inside defined person group
     try:
-        fiend = face_client.person_group_person.create(PERSON_GROUP_ID, userId) 
+        pgp = face_client.person_group_person.create(PERSON_GROUP_ID, userId) 
     except:
         return "Failed" 
-    personId = fiend.person_id
+    personId = pgp.person_id
 
     print(f"The assigned personId is {personId}")
 
     # Add a face to the person
     w = open(path_to_image, 'r+b') 
     try:
-        res = face_client.person_group_person.add_face_from_stream(PERSON_GROUP_ID, fiend.person_id, w, detection_model="detection_01")
+        res = face_client.person_group_person.add_face_from_stream(PERSON_GROUP_ID, pgp.person_id, w, detection_model="detection_01")
     except Exception as e: # API exception error
         print(e)
         return "Failed"

@@ -6,7 +6,7 @@
   	-moz-osx-font-smoothing: grayscale;
 }
 body , #auth{
-  	background-color: #435165;
+  	background-color: #468f8b;
   	margin: 0;
 }
 .login, .register {
@@ -17,7 +17,7 @@ body , #auth{
 }
 .login h1, .register h1 {
   	text-align: center;
-  	color: #5b6574;
+  	color: #468f8b;
   	font-size: 24px;
   	padding: 20px 0 20px 0;
   	border-bottom: 1px solid #dee0e4;
@@ -37,8 +37,8 @@ body , #auth{
   	color: #9da3ac;
 }
 .login .links a.active, .register .links a.active {
-  	border-bottom: 3px solid #3274d6;
-  	color: #3274d6;
+  	border-bottom: 3px solid #468f8b;
+  	color: #468f8b;
 }
 .login form, .register form {
   	display: flex;
@@ -52,7 +52,7 @@ body , #auth{
   	align-items: center;
   	width: 50px;
   	height: 50px;
-  	background-color: #3274d6;
+  	background-color: #468f8b;
   	color: #ffffff;
 }
 .login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
@@ -66,7 +66,7 @@ body , #auth{
   	width: 100%;
   	padding: 15px;
   	margin-top: 20px;
-  	background-color: #3274d6;
+  	background-color: #468f8b;
   	border: 0;
   	cursor: pointer;
   	font-weight: bold;
@@ -74,11 +74,11 @@ body , #auth{
   	transition: background-color 0.2s;
 }
 .login form input[type="submit"]:hover, .register form input[type="submit"]:hover {
-  	background-color: #2868c7;
+  	background-color: #2d6764;
   	transition: background-color 0.2s;
 }
 .navtop {
-  	background-color: #2f3947;
+  	background-color: #468f8b;
   	height: 60px;
   	width: 100%;
   	border: 0;
@@ -98,8 +98,8 @@ body , #auth{
   	font-size: 24px;
   	padding: 0;
  	margin: 0;
-  	color: #eaebed;
-  	font-weight: normal;
+  	color: white;
+  	font-weight: bolder;
 }
 .navtop div a {
   	padding: 0 20px;
@@ -125,20 +125,22 @@ body.loggedin {
   	padding: 25px 0;
   	font-size: 22px;
   	border-bottom: 1px solid #e0e0e3;
-  	color: #4a536e;
+  	color: #468f8b;
 }
 .content > p, .content > div {
   	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   	margin: 25px 0;
   	padding: 25px;
 	background-color: #fff;
+	color: rgb(40, 43, 43);
 }
 .content > p table td, .content > div table td {
-	padding: 5px;
+	padding: 10px;
+	color: rgb(40, 43, 43);
 }
 .content > p table td:first-child, .content > div table td:first-child {
-	font-weight: bold;
-	color: #4a536e;
+	font-weight: normal;
+	color: rgb(40, 43, 43);
 	padding-right: 15px;
 }
 .content > div p {

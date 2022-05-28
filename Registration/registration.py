@@ -10,118 +10,127 @@ from flaskext.mysql import MySQL
 import os
 import numpy as np
 import uuid
+import argparse
 from create_person_group_person import create_pgp
 
 app = Flask(__name__)
 mysql = MySQL()
- 
-# MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = '1221'
-app.config['MYSQL_DATABASE_DB'] = 'master'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-mysql.init_app(app)
 
-@app.route("/")
-def main():
-    return render_template("profile.html")
 
-@app.route("/upload", methods=['POST'])    
-def upload():
+if __name__ == '__main__':
+    # configure arguments
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-u", "--DB_USER", required=True, help="MySQL database user")
+    ap.add_argument("-p", "--DB_PASSWORD", required=True, help="MySQL database password")
+    args = vars(ap.parse_args())
+    
+    # MySQL configurations
+    app.config['MYSQL_DATABASE_USER'] = args['DB_USER']
+    app.config['MYSQL_DATABASE_PASSWORD'] = args['DB_PASSWORD']
+    app.config['MYSQL_DATABASE_DB'] = 'master'
+    app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+    mysql.init_app(app)
 
-    # Get form inputs
-    _firstName = request.form['firstName']
-    _lastName = request.form['lastName']
-    _contactnum = str(request.form['contactNum'])
-    _aadharnum = str(request.form['aadharNum'])
-    _gendertext = request.form['gender']
-    _dob = request.form['dob']
-    _aptnum = request.form['ApartmentNumber']
-    _stadd = request.form['StreetAddress']
-    _city = request.form['City']
-    _state = request.form['State']
-    _pincode = str(request.form['Pincode'])
-    _userid = str(uuid.uuid4()) # generating a unique user id
+    @app.route("/")
+    def main():
+        return render_template("profile.html")
 
-    form = request.form 
+    @app.route("/upload", methods=['POST'])    
+    def upload():
 
-    # Check if upload using POST or Ajax
-    is_ajax = False
-    if form.get("__ajax", None) == "true":
-        is_ajax = True
+        # Get form inputs
+        _firstName = request.form['firstName']
+        _lastName = request.form['lastName']
+        _contactnum = str(request.form['contactNum'])
+        _aadharnum = str(request.form['aadharNum'])
+        _gendertext = request.form['gender']
+        _dob = request.form['dob']
+        _aptnum = request.form['ApartmentNumber']
+        _stadd = request.form['StreetAddress']
+        _city = request.form['City']
+        _state = request.form['State']
+        _pincode = str(request.form['Pincode'])
+        _userid = str(uuid.uuid4()) # generating a unique user id
 
-    my_cwd = os.path.dirname(__file__)
-    target = os.path.join(my_cwd, 'static', 'uploads', f"{_userid}" )
+        form = request.form 
 
-    # Make directory at target path if it doesnt already exist
-    try:
-        if not os.path.exists(target):
-            os.mkdir(target)
-    except:
+        # Check if upload using POST or Ajax
+        is_ajax = False
+        if form.get("__ajax", None) == "true":
+            is_ajax = True
+
+        my_cwd = os.path.dirname(__file__)
+        target = os.path.join(my_cwd, 'static', 'uploads', f"{_userid}" )
+
+        # Make directory at target path if it doesnt already exist
+        try:
+            if not os.path.exists(target):
+                os.mkdir(target)
+        except:
+            if is_ajax:
+                return ajax_response(False, "ajax Couldn't create upload directory: {}".format(target))
+            else:
+                return "Couldn't create upload directory: {}".format(target)
+
+        print("=== Form Data ===")
+        for key, value in form.items():
+            print(key, ":", value)
+
+    
+        # Check if user already existing in database. Aadhar used as basis of check.
+        queryString = "select User_ID from user where Aadhar_Num = '{}' ".format(_aadharnum)
+        print(queryString)
+
+        # Connecting to MySQL server
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        cursor.execute(queryString)
+        fetchLabel = cursor.fetchone()
+
+        print(f"fetch label: {fetchLabel}")
+
+        # If user not existing in db
+        if fetchLabel is None:
+
+            # Get picture uploaded in form and put at target path
+            for upload in request.files.getlist("file"):
+                filename = upload.filename.rsplit("/")[0]
+                destination = "/".join([target, filename]) # destination = target + filename
+                print("Accept incoming file:", filename)
+                print("Save it to:", destination)
+                upload.save(destination) # uploading to dest
+
+            # Create person group person with userId 
+            personId = create_pgp(_userid, destination)
+            print(f"Inside app.py personId: {personId}") 
+
+            if(personId == 'Failed'): # person not created
+                return render_template('unsuccessful.html') 
+
+            # Convert gender input to single character inputs for db
+            if _gendertext == 'male':
+                _gender = 'M'
+            elif _gendertext == 'female':
+                _gender = 'F'
+            else:
+                _gender = 'O'
+            
+            # Insert data received into the db
+            insertString = f"insert into user (User_ID, First_Name, Last_Name, Contact_Num, Aadhar_Num, Gender, DOB, ApartmentNumber, StreetAddress, City, State, Pincode, PersonID) values ('{_userid}','{_firstName}','{_lastName}', '{_contactnum}', '{_aadharnum}', '{_gender}', '{_dob}', '{_aptnum}', '{_stadd}', '{_city}', '{_state}', '{_pincode}', '{personId}')"
+            print(insertString)
+
+            cursor2 = conn.cursor()
+            cursor2.execute(insertString)
+            conn.commit()
+
+        else: # user exists in db
+            return render_template('user_exists.html')
+
+
         if is_ajax:
-            return ajax_response(False, "ajax Couldn't create upload directory: {}".format(target))
+            return ajax_response(True, _userid)
         else:
-            return "Couldn't create upload directory: {}".format(target)
-
-    print("=== Form Data ===")
-    for key, value in form.items():
-        print(key, ":", value)
-
- 
-    # Check if user already existing in database. Aadhar used as basis of check.
-    queryString = "select User_ID from user where Aadhar_Num = '{}' ".format(_aadharnum)
-    print(queryString)
-
-    # Connecting to MySQL server
-    conn = mysql.connect()
-    cursor = conn.cursor()
-    cursor.execute(queryString)
-    fetchLabel = cursor.fetchone()
-
-    print(f"fetch label: {fetchLabel}")
-
-    # If user not existing in db
-    if fetchLabel is None:
-
-        # Get picture uploaded in form and put at target path
-        for upload in request.files.getlist("file"):
-            filename = upload.filename.rsplit("/")[0]
-            destination = "/".join([target, filename]) # destination = target + filename
-            print("Accept incoming file:", filename)
-            print("Save it to:", destination)
-            upload.save(destination) # uploading to dest
-
-        # Create person group person with userId 
-        personId = create_pgp(_userid, destination)
-        print(f"Inside app.py personId: {personId}") 
-
-        if(personId == 'Failed'): # person not created
-            return render_template('unsuccessful.html') 
-
-        # Convert gender input to single character inputs for db
-        if _gendertext == 'male':
-            _gender = 'M'
-        elif _gendertext == 'female':
-            _gender = 'F'
-        else:
-            _gender = 'O'
-        
-        # Insert data received into the db
-        insertString = f"insert into user (User_ID, First_Name, Last_Name, Contact_Num, Aadhar_Num, Gender, DOB, ApartmentNumber, StreetAddress, City, State, Pincode, PersonID) values ('{_userid}','{_firstName}','{_lastName}', '{_contactnum}', '{_aadharnum}', '{_gender}', '{_dob}', '{_aptnum}', '{_stadd}', '{_city}', '{_state}', '{_pincode}', '{personId}')"
-        print(insertString)
-
-        cursor2 = conn.cursor()
-        cursor2.execute(insertString)
-        conn.commit()
-
-    else: # user exists in db
-        return render_template('user_exists.html')
-
-
-    if is_ajax:
-        return ajax_response(True, _userid)
-    else:
-        return render_template('successful.html')      
+            return render_template('successful.html')       
 
     
 if __name__ == "__main__":

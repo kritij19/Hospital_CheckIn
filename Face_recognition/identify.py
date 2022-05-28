@@ -1,10 +1,16 @@
 import os
 from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials
-# from azure.cognitiveservices.vision.face.models import TrainingStatusType, Person, QualityForRecognition
-from global_variables import PERSON_GROUP_ID, KEY, ENDPOINT, PERSON_GROUP_NAME
 import mysql.connector
 from mysql.connector import Error
+from dotenv import load_dotenv
+
+
+# Get credentials from environment variables
+load_dotenv()
+ENDPOINT = os.getenv('ENDPOINT')
+KEY = os.getenv('KEY')
+PERSON_GROUP_ID = os.getenv('PERSON_GROUP_ID')
 
 # Create an authenticated face client
 face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
