@@ -135,7 +135,11 @@ http://127.0.0.1:5000/
 
 <img src="images/PatientDetails.png" alt="View Patient Details" width="700"/>
 
+## Resources Used
 
+* [Azure Face API](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/face-readme?view=azure-dotnet)
+* [Integrating MySQL with Flask](https://code.tutsplus.com/tutorials/creating-a-web-app-from-scratch-using-python-flask-and-mysql--cms-22972)
+* [Setting up environment variables for data hiding](https://www.twilio.com/blog/environment-variables-python)
 
 
 
