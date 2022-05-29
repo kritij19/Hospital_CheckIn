@@ -36,7 +36,7 @@ dsssdfsd
 
 ### Installation
 
-1. Clone the repo
+1. Clone the repository
 ```sh
 git clone https://github.com/kritij19/Hospital_CheckIn.git
 ```
