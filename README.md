@@ -15,7 +15,7 @@ A brief description of what this project does and who it's for
   * [Installation](#installation)
   * [Usage](#usage)
 * [User Manual](#user-manual)
-* [Resources used](#Resources Used)
+* [Resources used](#Resources-Used)
 
 
 ## About the Project
@@ -135,7 +135,7 @@ http://127.0.0.1:5000/
 
 <img src="images/PatientDetails.png" alt="View Patient Details" width="700"/>
 
-## Resources Used
+## Resources-Used
 
 * [Azure Face API](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/face-readme?view=azure-dotnet)
 * [Integrating MySQL with Flask](https://code.tutsplus.com/tutorials/creating-a-web-app-from-scratch-using-python-flask-and-mysql--cms-22972)
