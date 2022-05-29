@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<!-- <body style="background-color:powderblue;">     -->
+<head>
+	<title></title>
+	   <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="static/css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/creative.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="static/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/animate-custom.css" />
+</head>
+<body id="page-top" style="background-image:url('../static/images/abstract-medical-wallpaper-template-design_53876-61802.png');background-size:cover">
+<section >				
+    <div id="container_demo" >
+        <div id="wrapper">
+            <div id="login" class="animate form">
+                <form  action="/upload" autocomplete="on" method="post" enctype="multipart/form-data"> 
+                    <h1>Create Profile</h1> 
+                    <label for="fname"> First Name</label>
+                    <input id="fname" name="firstName" required="required" type="text" placeholder="First Name"/>
+
+                    <label for="lname"> Last Name</label>
+                    <input id="lname" name="lastName" required="required" type="text" placeholder="Last Name" />
+                    
+                    <label for="contactnum">Contact Number</label>
+                    <input id="contactnum" name="contactNum" required="required" type="text" minlength="10" maxlength="10" placeholder="10 digit contact number" /> 
+                    
+                    <label for="adhnum">Aadhar Number</label>
+                    <input id="adhnum" name="aadharNum" required="required" type="text" minlength="12" maxlength="12"placeholder="12 digit Aadhar Card Number" />
+                    <br>
+                    
+                    <br>
+                    <label for="gender">Gender</label>  
+                    <select name="gender">
+                    <br>
+                        <!-- <option value="none" selected>Gender</option> -->
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">other</option>
+                    </select>   
+                    <br>    
+
+                    <label for="dob">Date of Birth</label>
+                    <input id="dob" name="dob" required="required" type="date" placeholder="Date of Birth" /> 
+                    
+                    <label for="apnum">Apartment Number</label>
+                    <input id="apnum" name="ApartmentNumber" required="required" type="text" placeholder="Apartment Number" /> 
+
+                    <label for="stadd">Street Address</label>
+                    <input id="stadd" name="StreetAddress" required="required" type="text" placeholder="Street Address" /> 
+
+                    <label for="city">City</label>
+                    <input id="city" name="City" required="required" type="text" placeholder="City" />      
+                    
+                    <label for="state">State</label>
+                    <input id="state" name="State" required="required" type="text" placeholder="State" /> 
+
+                    <label for="pincode">Pincode</label>
+                    <input id="pincode" name="Pincode" required="required" type="text" minlength="6" maxlength="6" placeholder="6 digits Pincode" /> 
+
+                    <label for="file-picker">Photograph</label>
+                    <input id="file-picker" type="file" class="form-control" name="file" required="required" accept="image/x-png, image/jpeg, image/bmp" multiple>
+                    <p class="login button"> 
+                         <input type="submit" value="Submit" /> 
+					</p>
+                    <!-- <p class="change_link"></p> -->
+                </form>
+            </div>                       			
+        </div>
+    </div>  
+</section>
+    <!-- jQuery -->
+    <script src="static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="static/js/jquery.easing.min.js"></script>
+    <script src="static/js/jquery.fittext.js"></script>
+    <script src="static/js/wow.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="static/js/creative.js"></script>
+</body>
+</html>

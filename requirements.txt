@@ -1,14 +1,16 @@
-azure_storage>=0.37.0
-Flask>=2.0.2
-Flask_Bcrypt>=1.0.1
+azure-cognitiveservices-vision-face==0.4.1
+azure-common==1.1.25
+Flask==2.0.2
+Flask_Bcrypt==1.0.1
 msrest>=0.6.21
-mysql_connector_repackaged>=0.3.1
-click>=8.0.1
+mysql_connector_repackaged==0.3.1
+click==8.0.1
 # Flask==2.0.1
-itsdangerous>=2.0.1
-Jinja2>=3.0.1
-MarkupSafe>=2.0.1
-Werkzeug>=2.0.1
+itsdangerous==2.0.1
+Jinja2==3.0.1
+MarkupSafe==2.0.1
+Werkzeug==2.0.1
 mysql-connector-python
-numpy>=1.21.3
-python-dotenv>=0.20.0
+numpy==1.21.3
+python-dotenv==0.20.0
+flask-mysql==1.5.2
