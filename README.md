@@ -63,16 +63,17 @@ pip install -r requirements.txt
 ```python
 python registration\registration.py -u <MySQL_database_user> -p <MySQL_database_password>
 ```
-2. View the application on localhost
-<a href = 'http://127.0.0.1:5000/'> </a>
+2. View the application on
+```
+http://127.0.0.1:5000/
+```
 
 ### II) Face recognition based CheckIn:
 1. Run the following command
 ```python
 python face_recognition/face_recognition.py -u <MySQL_database_user> -p <MySQL_database_password>
 ```
-2. View the application on localhost
-<a href = 'http://127.0.0.1:5000/'> </a> 
+2. View the application on
 ```
 http://127.0.0.1:5000/
 ```
@@ -81,8 +82,7 @@ http://127.0.0.1:5000/
 ```python
 python hospital_admin/hospital_admin.py -u <MySQL_database_user> -p <MySQL_database_password>
 ```
-2. View the application on localhost
-<a href = 'http://127.0.0.1:5000/'> </a>
+2. View the application on
 ```
 http://127.0.0.1:5000/
 ```
