@@ -1,8 +1,6 @@
 
-<h1 align="center">Hospital CheckIn System </h1>
+<h1 align="center">Hospital Check-In System </h1>
 <h5 align="center"><em>(Using Face Recognition)</em></h5>
-
-<br>
 
 
 ## Table of Contents
@@ -22,7 +20,7 @@
 
 This browser-based patient registration application allows patients to upload their details along with their scanned photo while being at their homes. On the patient's arrival at the hospital, only facial recognition is sufficient as registration information is already there in the app database. Face recognition at hospital also ensures that the patient is personally present and so token cab be issued for queuing outside the relevant room.  This little solution can save substantial time at the registration desk, thereby improving the overall efficiency and reduce patient's sufferings. 
 
-There are 3 major use cases in the application -
+There are 3 major features of the application -
 1. Patient Registration from home based on personal details, aadhar card and a scanned photo
 2. Patient check-in at the hospital using face recognition
 3. Hospital administration's option to view the registration data
