@@ -1,5 +1,7 @@
 
-# Face recognition based Hospital Checkin
+<h1 align="center">Microsoft Teams Clone 
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/480px-Microsoft_logo.svg.png" alt="Logo" width="25" height="25">
+</h1>
 
 A brief description of what this project does and who it's for
 
