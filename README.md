@@ -15,7 +15,7 @@ A brief description of what this project does and who it's for
   * [Installation](#installation)
   * [Usage](#usage)
 * [User Manual](#user-manual)
-* [Acknowledgements](#acknowledgements)
+* [Resources used](#Resources Used)
 
 
 ## About the Project
