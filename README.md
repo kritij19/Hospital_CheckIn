@@ -14,6 +14,7 @@ A brief description of what this project does and who it's for
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
   * [Usage](#usage)
+* [User Manual](#user-manual)
 * [Acknowledgements](#acknowledgements)
 
 
@@ -92,4 +93,12 @@ python hospital_admin/hospital_admin.py -u <MySQL_database_user> -p <MySQL_datab
 ```
 http://127.0.0.1:5000/
 ```
+
+## User Manual
+
+Module - Patient Registration
+1. Fill up the form with personal details, Aadhar card and a scanned photo of the patient
+
+
+
 
