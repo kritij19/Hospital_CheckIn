@@ -96,8 +96,46 @@ http://127.0.0.1:5000/
 
 ## User Manual
 
-Module - Patient Registration
-1. Fill up the form with personal details, Aadhar card and a scanned photo of the patient
+### Module - Patient Registration
+1. Fill up the form with personal details, Aadhar card and a scanned photo of the patient. After filling all details, press Submit.
+
+<img src="images/RegPg1.png" alt="Patient Registration part 1" width="700"/>
+<img src="images/RegPg2.png" alt="Patient Registration part 2" width="700"/>
+
+2. On Submit, the application validates if Aadhar number exists in the database, in that case, gives an error message
+3. If the Aadhar number does not exists, checks if the photo uploaded is proper, then uses Azue API to create a person id, and stores all relevant details in the database, and shows a success message to the user
+
+### Module - Patient Checkin
+1. The patient (usder) to capture his photo using the webcam. Use the Take Snapshot option to click picture
+
+<img src="images/CheckIn-1.png" alt="Photo Capture at checking" width="700"/>
+
+2. Once picture is clicked, it shows on the right hand side, and then click on Submit to compare
+
+<img src="images/Comparison.png" alt="Comparing" width="700"/>
+
+3. If the photo captured at the hospital matches with the photo uploaded earlier, then a success message is shown
+
+<img src="images/SuccessCheckIn.png" alt="Successful Checkin" width="700"/>
+
+### Module - Hospital Administration to view Patient Records
+1. The hospital administration staff has the option to view patients data. For this, they have to register themselves in the app one time.
+
+<img src="images/HospAdminReg.png" alt="Hospital Administrator Registration" width="700"/>
+
+2. Once Registration is done, they need to login using the credentials used during registration
+
+<img src="images/HospAdminLogin.png" alt="Hospital Administrator Login" width="700"/>
+
+3. The administrator can see all patients' data in a tabular format
+
+<img src="images/ViewPatientRecords.png" alt="View Patient Records" width="700"/>
+
+4. In case they want to view a particular patient's data, then they can click on the view button for that row
+
+<img src="images/PatientDetails.png" alt="View Patient Details" width="700"/>
+
+
 
 
 
