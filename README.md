@@ -69,6 +69,7 @@ http://127.0.0.1:5000/
 ```
 
 ### II) Face recognition based CheckIn:
+> Note: You will have to stop the execution of one application to access the other. (For windows: Ctrl + C)
 1. Run the following command
 ```python
 python face_recognition/face_recognition.py -u <MySQL_database_user> -p <MySQL_database_password>
@@ -78,6 +79,7 @@ python face_recognition/face_recognition.py -u <MySQL_database_user> -p <MySQL_d
 http://127.0.0.1:5000/
 ```
 ### III) Hospital Admin Side:
+> Note: You will have to stop the execution of one application to access the other. (For windows: Ctrl + C)
 1. Run the following command
 ```python
 python hospital_admin/hospital_admin.py -u <MySQL_database_user> -p <MySQL_database_password>
@@ -86,4 +88,4 @@ python hospital_admin/hospital_admin.py -u <MySQL_database_user> -p <MySQL_datab
 ```
 http://127.0.0.1:5000/
 ```
-> Note: You will have to stop the execution of one application to access the other
+
