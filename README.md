@@ -15,7 +15,7 @@
   * [Installation](#installation)
   * [Usage](#usage)
 * [User Manual](#user-manual)
-* [Resources used](#Resources Used)
+* [Resources used](#Resources-Used)
 
 
 ## About the Project
