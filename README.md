@@ -1,5 +1,6 @@
 
-<h1 align="center">Face Recognition based Hospital CheckIn System </h1>
+<h1 align="center">Hospital CheckIn System </h1>
+<h5 align="center"><em>(Using Face Recognition)</em></h5>
 
 A brief description of what this project does and who it's for
 
