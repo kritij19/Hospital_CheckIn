@@ -101,7 +101,7 @@ http://127.0.0.1:5000/
 <img src="images/RegPg2.png" alt="Patient Registration part 2" width="700"/>
 
 2. On Submit, the application validates if Aadhar number exists in the database, in that case, gives an error message
-3. If the Aadhar number does not exists, checks if the photo uploaded is proper, then uses Azue API to create a person id, and stores all relevant details in the database, and shows a success message to the user
+3. If the Aadhar number does not exist, checks if the photo uploaded is proper, then uses Azure Face API to create a person id corresponding to the face in the image. All relevant details are then stored in the database and a success message is shown to the user
 
 ### Module - Patient Checkin
 1. The patient (usder) to capture his photo using the webcam. Use the Take Snapshot option to click picture
