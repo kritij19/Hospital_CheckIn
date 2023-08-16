@@ -104,7 +104,7 @@ http://127.0.0.1:5000/
 3. If the Aadhar number does not exist, checks if the photo uploaded is proper, then uses Azure Face API to create a person id corresponding to the face in the image. All relevant details are then stored in the database and a success message is shown to the user
 
 ### Module - Patient Checkin
-1. The patient (usder) to capture his photo using the webcam. Use the Take Snapshot option to click picture
+1. During hospital check-in the patient (user) has to cpature his photo using the webcam. 
 
 <img src="images/CheckIn-1.png" alt="Photo Capture at checking" width="700"/>
 
