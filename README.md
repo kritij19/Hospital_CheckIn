@@ -129,8 +129,6 @@ http://127.0.0.1:5000/
 
 4. In case they want to view a particular patient's data, then they can click on the view button for that row
 
-<img src="images/PatientDetails.png" alt="View Patient Details" width="700"/>
-
 ## Resources Used
 
 * [Azure Face API](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/face-readme?view=azure-dotnet)
